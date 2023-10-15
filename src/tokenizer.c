@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
-#include "history.h"
 #define MAX 100
 
 /* Return true (non-zero) if c is a whitespace characer
@@ -133,28 +132,3 @@ void free_tokens(char **tokens){
   }
   free(tokens);
 }
-
-main(){
-
-  int i;
-  char word[] = " Fart adongus bro hastag comp org ";
-  char *str = word;
-
-
-  printf("%d\n", count_tokens(str));
-  /*
-  str = token_start(str);
-  printf("%c\n", *str);
-  str = token_terminator(str);
-
-  str = token_start(str);
-  printf("%c\n", *str);
-  str = token_terminator(str);
-
-  str = token_start(str);
-  printf("%c\n", *str);
-  str = token_terminator(str);
-  */
-
-}
-  
