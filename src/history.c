@@ -67,7 +67,7 @@ void add_history(List *list, char *str){
     nodeId += 1;
 
     /*??????????*/
-    currentItem ->= next;
+    currentItem = currentItem->next;
   }
 
   /*Allocating a new node once we've reached the end*/
@@ -84,12 +84,53 @@ void add_history(List *list, char *str){
 /* Retrieve the string stored in the node where Item->id == id.
    List* list - the linked list
    int id - the id of the Item to find */
-char *get_history(List *list, int id);
+char *get_history(List *list, int id){
 
+  Item *currentItem = list->root;
+
+  while(currentItem != '\0'){
+    
+    if(currentItem->id == id){
+      
+      return currentItem->str;
+    }
+
+    currentItem = currentItem->next;
+  }
+  /*Returning an empty string if id is not found*/
+  printf("String is not in the history");
+  return "";
+}
 /*Print the entire contents of the list. */
-void print_history(List *list);
+void print_history(List *list){
 
+  Item *currentItem = list->root;
+
+  while(currentItem != '\0'){
+
+    printf("Node %d - %s\t", currentItem->id, currentItem->str);
+    currentItem = currentItem->next;
+  
+  
+  }
+  
+}
 /*Free the history list and the strings it references. */
-void free_history(List *list);
+void free_history(List *list){
 
+  Item *currentItem = list->root;
+  Item *itemToDelete;
+
+  while(currentItem != '\0'){
+  
+    itemToDelete = currentItem;
+
+    free(itemToDelete);
+
+    currentItem = currentItem->next;
+  }
+
+  free(list);
+
+}
 #endif
