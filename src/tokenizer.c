@@ -98,7 +98,7 @@ char **tokenize(char* str){
 
   char *tokenTemp = str;
 
-  for(int i = 0;i < count;i += 1){
+  for(int i = 0;i < wordCount;i += 1){
     tokenTemp = token_start(tokenTemp);
 
     currLen = token_terminator(tokenTemp) - tokenTemp;
@@ -116,7 +116,7 @@ char **tokenize(char* str){
 /* Prints all tokens. */
 void print_tokens(char **tokens){
 
-  for(int i = 0;tokens[i] != '\0';i += 1){
+  for(int i = 0;tokens[i] != NULL;i += 1){
     printf(tokens[i]);
 
     putchar('\n');
@@ -127,7 +127,7 @@ void print_tokens(char **tokens){
 /* Frees all tokens and the vector containing themx. */
 void free_tokens(char **tokens){
 
-  for(int i = 0;tokens[i] != '\0';i += 1){
+  for(int i = 0;tokens[i] != NULL;i += 1){
     free(tokens[i]);
   }
   free(tokens);

@@ -35,7 +35,7 @@ void add_history(List *list, char *str){
   /*Finding the length by iterating*/
   int tokenLen;
   
-  for(tokenLen = 0;str[i] != '\0';i += 1){
+  for(tokenLen = 0;str[i] != NULL;i += 1){
     ;
   }
 
@@ -62,7 +62,7 @@ void add_history(List *list, char *str){
   }
 
   /*Iterating if the root isn't empty*/
-  while(currentItem->next != '\0'){
+  while(currentItem->next != NULL){
     
     nodeId += 1;
 
@@ -78,7 +78,7 @@ void add_history(List *list, char *str){
 
   currentItem->next->str = newItemPtr;
 
-  currentItem->next->next = '\0';
+  currentItem->next->next = NULL;
   
 }
 /* Retrieve the string stored in the node where Item->id == id.
@@ -88,7 +88,7 @@ char *get_history(List *list, int id){
 
   Item *currentItem = list->root;
 
-  while(currentItem != '\0'){
+  while(currentItem != NULL){
     
     if(currentItem->id == id){
       
@@ -106,7 +106,7 @@ void print_history(List *list){
 
   Item *currentItem = list->root;
 
-  while(currentItem != '\0'){
+  while(currentItem != NULL){
 
     printf("Node %d - %s\t", currentItem->id, currentItem->str);
     currentItem = currentItem->next;
@@ -121,7 +121,7 @@ void free_history(List *list){
   Item *currentItem = list->root;
   Item *itemToDelete;
 
-  while(currentItem != '\0'){
+  while(currentItem != NULL){
   
     itemToDelete = currentItem;
 
