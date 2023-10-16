@@ -35,7 +35,7 @@ void add_history(List *list, char *str){
   /*Finding the length by iterating*/
   int tokenLen;
   
-  for(tokenLen = 0;str[i] != NULL;i += 1){
+  for(tokenLen = 0;str[tokenLen] != '\0';tokenLen += 1){
     ;
   }
 
